@@ -1,0 +1,121 @@
+{
+  "type": "FeatureCollection",
+      
+  "features": [
+  {
+    "type": "Feature",
+    "properties": {
+
+      "Name": "Volcán San José",
+      "InfoType": "location",
+      "Description": "Big mountain conditions"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-69.5300,-33.4600]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+
+      "Name": "Sierra Nevada",
+      "InfoType": "location",
+      "Description": "This volcano means a long approach but the skiing back to Malalcahuello is one of the longests runs ever"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -71.59302949905396,
+        -38.57215926960727
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+
+      "Name": "Volcán Llaima",
+      "InfoType": "location",
+      "Description": "Best skiing on captren side"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -71.73076629638672,
+        -38.69559231611408
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+
+      "Name": "Volcán Sollipulli",
+      "InfoType": "location",
+      "Description": "Huge glacier on the crater"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -71.52786254882812,
+        -38.966883415149574
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+
+      "Name": "Volcán Villarrica",
+      "InfoType": "location",
+      "Description": "Huge glacier on the crater"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -71.92680358886719,
+        -39.42664661015889
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+
+      "Name": "Volcán Quetrupillan",
+      "InfoType": "location",
+      "Description": "Huge glacier on the crater"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -71.7081069946289,
+        -39.54535295443351
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+
+      "Name": "Volcán Lanin",
+      "InfoType": "location",
+      "Description": "Huge glacier on the crater",
+      "photo": "https://image.shutterstock.com/image-photo/volcano-villarrica-volcan-mountain-snow-260nw-1420079189.jpg"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -71.50245666503906,
+        -39.630812353587054
+      ]
+    }
+  }
+  
+  ]
+}
+
+
+
+
