@@ -1,20 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import NavBar from './NavBar/NavBar'
 import Footer from './Footer/Footer';
 import MapLogic from './maplogic';
 import * as serviceWorker from './serviceWorker';
-//import 'leaflet/dist/leaflet.css';
+import 'leaflet/dist/leaflet.css';
 
 ReactDOM.render(
   <React.StrictMode>
     <NavBar />
     <MapLogic />
     <Footer />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </React.StrictMode>,document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change
