@@ -1,23 +1,23 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
+import './Footer.css';
 
 class Footer extends React.Component {
-  state = {
-    menu: [
-      { mapa:'Mapa 1', description:'Outdoors'},
-      { mapa:'Mapa 2', description:'Old maps'},
-      { mapa:'Mapa 3', description:'Glacier'},
-    ]
-  }
     render () {
     return (
-        <ButtonGroup size="small" aria-label="small outlined button group">
-        <Button>{ this.state.menu[0].mapa }</Button>
-        <Button caption="this.state.menu[1].description">{ this.state.menu[1].mapa }</Button>
-        <Button>{ this.state.menu[2].mapa }</Button>
+        <div className="Footer">
+        <ButtonGroup size="large" variant="contained" color="secondary" fullWidth="true">
+        <Button>Ski Touring Araucania</Button>
+        <Button>Boot Fitting</Button>
+        <Button>Camper Van Rental</Button>
+        <Button>Ski Rental</Button>
+        <Button>Backcountry Gear</Button>
+        <Button>Avalanche Info</Button>
+        <Button>Weather</Button>
+        <Button>Ski Resort Tickets</Button>
       </ButtonGroup>
-        )
-}
+      </div>)
+  }
 }
 export default Footer;
