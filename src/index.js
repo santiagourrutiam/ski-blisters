@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import NavBar from './NavBar/NavBar'
-import Footer from './Footer/Footer';
-import MapLogic from './MapLogic/MapLogic';
+import NavBar from './components/NavBar/NavBar'
+import Footer from './components/Footer/Footer';
+import MapLogic from './components/MapLogic/MapLogic';
 import * as serviceWorker from './serviceWorker';
 import './App.css';
 
