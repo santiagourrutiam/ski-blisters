@@ -4,11 +4,14 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.9.7",
+    "@material-ui/icons": "^4.9.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "leaflet": "^1.6.0",
     "leaflet.markercluster": "^1.4.1",
+    "material-ui-icons": "^1.0.0-beta.36",
+    "material-ui-search-bar": "^1.0.0-beta.14",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-leaflet": "^2.6.3",
@@ -23,8 +26,7 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": 
-      "eslint:recommended"
+    "extends": "eslint:recommended"
   },
   "browserslist": {
     "production": [

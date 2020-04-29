@@ -7,8 +7,7 @@ class Footer extends React.Component {
   render () {
     return (
       <>
-      <div className="Footer">
-        <ButtonGroup size="large" aria-label="contained primary button group" variant="contained" color="secondary" fullWidth="true">
+        <ButtonGroup size="large" fullWidth={true} aria-label="contained primary button group" variant="contained" color="secondary">
           <Button>Ski Touring Araucania</Button>
           <Button>Boot Fitting</Button>
           <Button>Camper Van Rental</Button>
@@ -18,7 +17,6 @@ class Footer extends React.Component {
           <Button>Weather</Button>
           <Button>Ski Resort Tickets</Button>
         </ButtonGroup>
-      </div>
       </>
     )
   }

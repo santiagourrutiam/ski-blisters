@@ -3,9 +3,9 @@ import Backcountry from '../../backcountry_beta.json';
 //import { Map, Marker, Popup, Polygon, TileLayer, Polyline } from "react-leaflet";
 //import MarkerClusterGroup from 'react-leaflet-markercluster';
 import 'react-leaflet-markercluster/dist/styles.min.css';
-import { Button } from '@material-ui/core';
+import { Button, ButtonGroup } from '@material-ui/core';
 import LeafletMap from '../LeafletMap/LeafletMap';
-import FullScreenDialog from '../FullScreenDialog/FullScreenDialog';
+
 
 
 class MapLogic extends Component {
@@ -27,37 +27,56 @@ class MapLogic extends Component {
         });
     };
     locationsToggler = () => {
-        const doesShow = this.state.showLocations
-        this.setState ({showLocations : !doesShow });
+        const doesShowLocations = this.state.showLocations
+        this.setState ({showLocations : !doesShowLocations });
     };
     routesToggler = () => {
-        const doesShow = this.state.showRoutes
-        this.setState ({showRoutes : !doesShow });
+        const doesShowRoutes = this.state.showRoutes
+        this.setState ({showRoutes : !doesShowRoutes });
     }
     areasToggler = () => {
-        const doesShow = this.state.showAreas
-        this.setState ({showAreas : !doesShow });
+        const doesShowAreas = this.state.showAreas
+        this.setState ({showAreas : !doesShowAreas });
     };
 
-    render() {    
+    render() {
+        const buttonStyle = {
+            backgroundColor: 'green', 
+        }    
             return (
                 <>
-                <LeafletMap 
-                    center={this.state.mapCenter} 
-                    zoom={this.state.zoomLevel} 
-                    url={this.state.tileLayerUrl} 
-                    locations={this.state.locations}
-                    showLocations={this.state.showLocations}
-                    routes={this.state.routes}
-                    showRoutes={this.state.showRoutes}
-                    areas={this.state.areas}
-                    showAreas={this.state.showAreas}
-                />
-                <Button variant="contained" color="primary" onClick={ () => this.locationsToggler()}>Locations</Button>
-                <Button variant="contained" color="primary" onClick={ () => this.routesToggler()}>Routes</Button>
-                <Button variant="contained" color="primary" onClick={ () => new FullScreenDialog()}>Areas</Button>
-            </>
-            )
-    }
+                    <LeafletMap 
+                        center={this.state.mapCenter} 
+                        zoom={this.state.zoomLevel} 
+                        url={this.state.tileLayerUrl} 
+                        locations={this.state.locations}
+                        showLocations={this.state.showLocations}
+                        routes={this.state.routes}
+                        showRoutes={this.state.showRoutes}
+                        areas={this.state.areas}
+                        showAreas={this.state.showAreas}
+                    />
+                    <ButtonGroup color="primary" aria-label="outlined primary button group" orientation="horizontal">
+                        <Button
+                            style={buttonStyle} 
+                            variant="contained" 
+                            color="primary" 
+                            onClick={ () => this.locationsToggler()}>Locations</Button>
+
+                        <Button
+                            style={buttonStyle}
+                            variant="contained" 
+                            onClick={ () => this.routesToggler()}>Routes</Button>
+
+                        <Button 
+                        variant="contained" 
+                        color="primary" 
+                        onClick={ () => this.areasToggler()}>Areas</Button>
+                    </ButtonGroup>
+                    
+                    
+                </>
+            ) //return closure
+    } // render closure
 }
 export default MapLogic;
