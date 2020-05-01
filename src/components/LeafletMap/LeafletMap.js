@@ -1,107 +1,22 @@
 import React from 'react';
-import { Map, Marker, Popup, Polygon, Polyline, TileLayer } from 'react-leaflet';
-import MarkerClusterGroup from 'react-leaflet-markercluster';
+import { Map, TileLayer } from 'react-leaflet';
 import './leafletmap.css';
-import Dialog from '../Dialog/Dialog';
-import { iconLocation, iconRoute } from './icons/Icons';
+import Locations from './Locations/Locations';
+import Routes from './Routes/Routes';
+import Areas from './Areas/Areas';
+
 
 const LeafletMap = (props) => {
-    function reverseLongLatCoordinates (longLatPositions) {
-        let latLongPositions = [];
-        for (let i=0;i< longLatPositions.length;i++)
-            { latLongPositions[i] = [longLatPositions[i][1],longLatPositions[i][0]] }
-        return latLongPositions; //returns array in latlong coordinates.                              
-    };
-    if (props.showLocations) {
-        console.log('es verdadero');
-    }
-    else{
-        console.log('es falso');
-    }
-
+    
     return (
         <>
-        <div className="leaflet-container">
-        <Map attributionControl={false} center={props.center} zoom={props.zoom} > 
-            <TileLayer url={props.url} /> 
-            <MarkerClusterGroup>
-            {/* LOADING ALL MARKERS INSIDE A MARKERCLUSTERGROUP*/}
-            {props.showLocations &&  props.locations.map( (location, index) => (
-                    <Marker icon={iconLocation}
-                        key={location.properties.Name} 
-                        position={[location.geometry.coordinates[1],location.geometry.coordinates[0]]}>
-                        <Popup
-                            position={[location.geometry.coordinates[1],location.geometry.coordinates[0]]}>
-                            <div>
-                                <h3>{location.properties.Name}</h3>
-                                <p>{location.properties.Description}</p>
-                                <Dialog 
-                                    type = {location.properties.InfoType}
-                                    name={location.properties.Name} 
-                                    description={location.properties.Description}
-                                />                                                
-                            </div>
-                        </Popup>
-                    </Marker>
-                           )
-                        )
-                }
-            </MarkerClusterGroup>
-            {/* LOADING ALL ROUTES */}
-            { props.showRoutes  && props.routes.map(route => (
-                <>
-                <Marker icon={iconRoute} position={[route.geometry.coordinates.slice(-1)[0][1],route.geometry.coordinates.slice(-1)[0][0]]}>
-                    <Popup position={[route.geometry.coordinates[1],route.geometry.coordinates[0]]}>
-                        <div>
-                            <h3>{route.properties.Name}</h3>
-                            <p>{route.properties.Description}</p>
-                            <Dialog 
-                                type = {route.properties.InfoType}
-                                name={route.properties.Name}
-                                description={route.properties.Description}
-                            />
-                        </div>
-                    </Popup>
-                </Marker>
-                <Polyline 
-                    key={route.properties.Name} 
-                    attribution="Rutas de las region"
-                    positions = {reverseLongLatCoordinates(route.geometry.coordinates) }
-                    color = {'purple'}
-                    weight={7}
-                    dasharray="5,5"
-                    opacity={0.75}
-                    smoothFactor={1}
-                >
-                
-                    <Popup position={[route.geometry.coordinates[1],route.geometry.coordinates[0]]}>
-                        <div>
-                            <h3>{route.properties.Name}</h3>
-                            <p>{route.properties.Description}</p>
-                            <Dialog />
-                        </div>
-                    </Popup>
-                </Polyline>
-                </>))
-            }
-            {/* map() to load Polygon (areas) elements.*/}
-            {props.showAreas && props.areas.map(area => (
-                <Polygon 
-                    key={area.properties.Name} 
-                    positions = {reverseLongLatCoordinates(area.geometry.coordinates)}>
-                    
-                    <Popup position={[area.geometry.coordinates[1], area.geometry.coordinates[0]]}>
-                        <div>
-                            <h3>{area.properties.Name} </h3>
-                            <p>{area.properties.Description}</p>
-                            <Dialog />
-                        </div>
-                    </Popup>
-                </Polygon>))
-            }
-        </Map>
-        </div>
-    </>
-    )
+            <Map attributionControl={false} center={props.center} zoom={props.zoom} > 
+                <TileLayer url={props.url} /> 
+                <Locations visible={props.showLocations} locations={props.locations}></Locations>
+                <Routes visible={props.showRoutes} routes={props.routes}></Routes>
+                <Areas visible={props.showAreas} areas={props.areas}></Areas>
+            </Map>
+        </>
+    )//Closes return.
 };
 export default LeafletMap;

@@ -5,7 +5,7 @@ import Backcountry from '../../backcountry_beta.json';
 import 'react-leaflet-markercluster/dist/styles.min.css';
 import { Button, ButtonGroup } from '@material-ui/core';
 import LeafletMap from '../LeafletMap/LeafletMap';
-
+import './maplogic.css';
 
 
 class MapLogic extends Component {
@@ -40,12 +40,10 @@ class MapLogic extends Component {
     };
 
     render() {
-        const buttonStyle = {
-            backgroundColor: 'green', 
-        }    
+            
             return (
                 <>
-                    <LeafletMap 
+                    <LeafletMap
                         center={this.state.mapCenter} 
                         zoom={this.state.zoomLevel} 
                         url={this.state.tileLayerUrl} 
@@ -58,23 +56,32 @@ class MapLogic extends Component {
                     />
                     <ButtonGroup color="primary" aria-label="outlined primary button group" orientation="horizontal">
                         <Button
-                            style={buttonStyle} 
+                            className="button" 
                             variant="contained" 
                             color="primary" 
-                            onClick={ () => this.locationsToggler()}>Locations</Button>
+                            onClick={ () => this.locationsToggler()}>Locations
+                        </Button>
 
                         <Button
-                            style={buttonStyle}
+                            className="button"
                             variant="contained" 
-                            onClick={ () => this.routesToggler()}>Routes</Button>
+                            onClick={ () => this.routesToggler()}>Routes
+                        </Button>
 
                         <Button 
-                        variant="contained" 
-                        color="primary" 
-                        onClick={ () => this.areasToggler()}>Areas</Button>
-                    </ButtonGroup>
-                    
-                    
+                            className="button"
+                            variant="contained" 
+                            color="primary" 
+                            onClick={ () => this.areasToggler()}>Areas
+                        </Button>
+                   
+                        <Button 
+                            className="button"
+                            variant="contained" 
+                            color="primary" 
+                            >Volcanos
+                        </Button>
+                    </ButtonGroup> 
                 </>
             ) //return closure
     } // render closure
