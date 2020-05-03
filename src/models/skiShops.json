@@ -1,0 +1,20 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Isoterma Cero",
+                "InfoType": "localSkiShop",
+                "Description": "Huge glacier on the crater"
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -71.53633296489716,
+                -38.478554780784094
+              ]
+            }
+        }
+    ] 
+}

@@ -1,65 +1,94 @@
 import React, { Component } from 'react';
-import Backcountry from '../../backcountry_beta.json';
-//import { Map, Marker, Popup, Polygon, TileLayer, Polyline } from "react-leaflet";
-//import MarkerClusterGroup from 'react-leaflet-markercluster';
-import 'react-leaflet-markercluster/dist/styles.min.css';
-import { Button, ButtonGroup } from '@material-ui/core';
+
+//GeoJSON imports
+import LocalAreas from '../../models/localAreas.json';
+import SkiShops from '../../models/skiShops.json';
+import Volcanos from '../../models/volcanos.json';
+import SkiTouringRoutes from '../../models/skiTouringRoutes.json';
+import AvalancheAreas from '../../models/avalancheAreas.json';
+
+//
 import LeafletMap from '../LeafletMap/LeafletMap';
 import './maplogic.css';
+import { Button, ButtonGroup } from '@material-ui/core';
 
+/* 
+TODO (02-05-2020):
+- Buttons or layers to manage the tiles
+- Finish every object description with photos and info
+- Change behavior to onmouseout for Popups
+- Center map after click with state
+*/
 
 class MapLogic extends Component {
+    constructor(props){
+        super(props);
+        console.log ('Maplogic constructor');
+    }
 
     state = {
-        mapCenter       : [-38.392, -71.568],
-        zoomLevel       : 13.1,
-        tileLayerUrl    : 'https://tile.thunderforest.com/outdoors/{z}/{x}/{y}.png?apikey=62bae950ae134822a4c875db79d87cf1',
-        locations       : Backcountry.features.filter(location => location.properties.InfoType === 'location'),
-        routes          : Backcountry.features.filter(route => route.properties.InfoType === 'route'),
-        areas           : Backcountry.features.filter(area => area.properties.InfoType === 'area'),
-        showLocations   : false,
-        showRoutes      : false,
-        showAreas       : false,
-    };
-    switchMapHandler = () => {
-        this.setState({
-            tileLayerUrl   : 'https://tile.thunderforest.com/landscape/{z}/{x}/{y}.png?apikey=62bae950ae134822a4c875db79d87cf1',
-        });
-    };
-    locationsToggler = () => {
-        const doesShowLocations = this.state.showLocations
-        this.setState ({showLocations : !doesShowLocations });
-    };
+        mapCenter           : [-38.392, -71.568],
+        zoomLevel           : 13.1,
+        tileLayerUrl        : 'https://tile.thunderforest.com/outdoors/{z}/{x}/{y}.png?apikey=62bae950ae134822a4c875db79d87cf1',
+        routes              : SkiTouringRoutes.features,
+        showRoutes          : false,
+        localAreas          : LocalAreas.features,
+        showLocalAreas      : false,
+        skiShops            : SkiShops.features,
+        showSkiShops        : false,
+        volcanos            : Volcanos.features,
+        showVolcanos        : false,
+        avalancheAreas      : AvalancheAreas.features,
+        showAvalancheAreas  : false,
+    }
+
+    volcanosToggler = () => {
+        const doesShowVolcanos = this.state.showVolcanos
+        this.setState ({showVolcanos : !doesShowVolcanos });
+    }
+
+    avalancheToggler = () => {
+        const doesShowAvalancheAreas = this.state.showAvalancheAreas
+        this.setState ({showAvalancheAreas : !doesShowAvalancheAreas });
+    }
+
     routesToggler = () => {
         const doesShowRoutes = this.state.showRoutes
         this.setState ({showRoutes : !doesShowRoutes });
     }
     areasToggler = () => {
-        const doesShowAreas = this.state.showAreas
-        this.setState ({showAreas : !doesShowAreas });
-    };
-
+        const doesShowAreas = this.state.showLocalAreas
+        this.setState ({showLocalAreas : !doesShowAreas });
+    }
+    skiShopsToggler = () => {
+        const doesShowSkiShops = this.state.showSkiShops
+        this.setState ({showSkiShops : !doesShowSkiShops });
+    }
     render() {
-            
             return (
                 <>
                     <LeafletMap
                         center={this.state.mapCenter} 
                         zoom={this.state.zoomLevel} 
                         url={this.state.tileLayerUrl} 
-                        locations={this.state.locations}
-                        showLocations={this.state.showLocations}
+                        volcanos={this.state.volcanos}
+                        showVolcanos={this.state.showVolcanos}
                         routes={this.state.routes}
                         showRoutes={this.state.showRoutes}
-                        areas={this.state.areas}
-                        showAreas={this.state.showAreas}
+                        localAreas={this.state.localAreas}
+                        showLocalAreas={this.state.showLocalAreas}
+                        skiShops={this.state.skiShops}
+                        showSkiShops={this.state.showSkiShops}
+                        avalancheAreas={this.state.avalancheAreas}
+                        showAvalancheAreas={this.state.showAvalancheAreas}  
                     />
-                    <ButtonGroup color="primary" aria-label="outlined primary button group" orientation="horizontal">
+
+<ButtonGroup color="primary" aria-label="outlined primary button group" orientation="horizontal">
                         <Button
                             className="button" 
                             variant="contained" 
                             color="primary" 
-                            onClick={ () => this.locationsToggler()}>Locations
+                            onClick={ () => this.volcanosToggler()}>Volcanos
                         </Button>
 
                         <Button
@@ -72,16 +101,25 @@ class MapLogic extends Component {
                             className="button"
                             variant="contained" 
                             color="primary" 
-                            onClick={ () => this.areasToggler()}>Areas
+                            onClick={ () => this.areasToggler()}>Local Areas
                         </Button>
-                   
+
                         <Button 
                             className="button"
                             variant="contained" 
                             color="primary" 
-                            >Volcanos
+                            onClick={ () => this.skiShopsToggler()}>Ski Shops
                         </Button>
-                    </ButtonGroup> 
+
+                        <Button 
+                            className="button"
+                            variant="contained" 
+                            color="primary" 
+                            onClick={ () => this.avalancheToggler()}>Avalanche Areas
+                        </Button>
+
+                    </ButtonGroup>
+
                 </>
             ) //return closure
     } // render closure

@@ -1,9 +1,8 @@
 import React from 'react';
 import {Polygon, Popup} from 'react-leaflet';
-import MarkerClusterGroup from 'react-leaflet-markercluster';
 import Dialog from '../../Dialog/Dialog';
 
-const Areas = (props) => {
+const Areas = props => {
     const reverseLongLatCoordinates = (longLatPositions) => {
         let latLongPositions = [];
         for (let i=0;i< longLatPositions.length;i++)
@@ -11,8 +10,8 @@ const Areas = (props) => {
         return latLongPositions; //returns array in latlong coordinates.                              
     }
     return (
-        <MarkerClusterGroup>
-        {props.visible && props.areas.map(area => (
+        <>
+        { props.visible && props.localAreas.map(area => (
             <Polygon 
                 key={area.properties.Name} 
                 positions = {reverseLongLatCoordinates(area.geometry.coordinates)}>
@@ -26,8 +25,8 @@ const Areas = (props) => {
             </Polygon>
             ))
         }
-        </MarkerClusterGroup>
-    ) //closes return;
+        </>
+    )
 }
 export default Areas;
 

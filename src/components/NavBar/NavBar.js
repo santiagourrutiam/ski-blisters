@@ -19,6 +19,7 @@ const NavBar = () => {
         onChange={() => ""}
         onRequestSearch={() => ""}
       />
+      
     </div>
   )
 }

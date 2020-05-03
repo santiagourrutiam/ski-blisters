@@ -36396,65 +36396,6 @@
           ]
         }
       },
-      {
-
-      "type": "Feature",
-      "properties": {
-
-        "Name": "El Sobre Azul",
-        "InfoType": "location",
-        "Description": "This is one of the quickest access from Corralco parking lot" 
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [-71.56228065490723,-38.41445894281905]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-      "Name": "Cara Sur Volcán Lonquimay",
-      "InfoType": "location",
-      "Description": "If you have the time to do it, you won't regret"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -71.60159111022949,
-          -38.395895146708725
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-      "Name": "Pequeña Gran",
-        "InfoType": "location",
-        "Description": "Some south faces that hold good powder"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -71.53155326843262,
-          -38.404774078857095
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "Name": "Cerros de Huamachuco",
-        "InfoType": "location",
-        "Description": "Good accumulation in southeasterly aspects"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -71.60742759704588,
-          -38.40571571981401
-        ]
-      }
-    },
     {
       "type": "Feature",
       "properties": {
@@ -36485,21 +36426,7 @@
         ]
       }
     },
-    {
-      "type": "Feature",
-      "properties": {
-        "Name": "Valle Pewenche",
-        "InfoType": "location",
-        "Description": "Best conditions after windy storms, southeast facing aspects"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -71.52073860168457,
-          -38.38876430564979
-        ]
-      }
-    },
+    
     {
           "type": "Feature",
           "properties": {
@@ -37717,7 +37644,7 @@
               }
             }
           ]
-        }
+}
       
     
   
