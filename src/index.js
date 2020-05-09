@@ -1,16 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import NavBar from './components/NavBar/NavBar'
-import Footer from './components/Footer/Footer';
+//import Footer from './components/Footer/Footer';
 import MapLogic from './components/MapLogic/MapLogic';
 import * as serviceWorker from './serviceWorker';
 import './App.css';
+import Grid from '@material-ui/core/Grid';
 
 ReactDOM.render(
   <>
-    <NavBar />
-    <MapLogic />
-    <Footer />
+    <div >
+      <Grid container spacing={1}>
+        <Grid item xs={12}>
+          <NavBar />
+        </Grid>
+        <Grid item xs={12}>
+          <MapLogic />
+        </Grid>
+        </Grid>
+    </div>      
   </>,
   document.getElementById('root')
 );

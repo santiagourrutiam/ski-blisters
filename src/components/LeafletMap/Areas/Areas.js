@@ -19,7 +19,14 @@ const Areas = props => {
                     <div>
                         <h3>{area.properties.Name} </h3>
                         <p>{area.properties.Description}</p>
-                        <Dialog />
+                        <Dialog 
+                            type = {area.properties.InfoType}
+                            name={area.properties.Name}
+                            description={area.properties.Description}
+                            orientation={area.properties.Orientation}
+                            imgSrc={area.properties.ImgSrc}
+                            comments={area.properties.Comments}
+                        />
                     </div>
                 </Popup>
             </Polygon>

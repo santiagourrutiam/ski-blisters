@@ -4,13 +4,13 @@ import Dialog from '@material-ui/core/Dialog';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItem from '@material-ui/core/ListItem';
 import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
+//import Divider from '@material-ui/core/Divider';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import CancelRoundedIcon from '@material-ui/icons/CancelRounded';
-
+import ImageGridList from '../Dialog/GridList/GridList';
 
 class DialogComp extends Component {
 
@@ -29,9 +29,10 @@ class DialogComp extends Component {
       return (
         <>
         <Button variant="outlined" 
-                color="primary" 
-                onClick={this.handleClickOpen}>Open full-screen dialog</Button>
+                color="secondary" 
+                onClick={this.handleClickOpen}>Click for full-screen Description</Button>
           
+          {/* THIS IS THE FULL DESCRIPTION LAYOUT PRESENTED AFTER CLICKING THE BUTTON*/}
           <Dialog fullScreen
             open={open}
             onClose={this.handleClickOpen}
@@ -53,16 +54,14 @@ class DialogComp extends Component {
             </AppBar>
             <List>
               <ListItem button>
-                <ListItemText primary="Phone ringtone" secondary="Titania" />
-              </ListItem>
-              <Divider />
-              <ListItem button>
-                <ListItemText primary="Main information About the Route" secondary="test" />
+                <ListItemText primary="Main information About the Route" secondary="No Entender" />
+                <h5>Orientation: {this.props.orientation}</h5>
               </ListItem>
             </List>
-            <img src={this.props.imgSrc} alt="Volcanes y rutas en Chile" />
+            <ImageGridList imgs={this.props.imgSrc}/>
+            <h5>Comments: {this.props.comments}</h5>
           </Dialog>
-        </>
+      </>
         )
     }
 }

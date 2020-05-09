@@ -20,7 +20,6 @@ const LeafletMap = (props) => {
                 <AvalancheAreas visible={props.showAvalancheAreas} avalancheAreas={props.avalancheAreas}></AvalancheAreas>
             
                 <LayersControl position="bottomleft" collapsed={false} checked={true}>
-
                     <LayersControl.BaseLayer name="Satelital">
                         <TileLayer
                             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -33,18 +32,16 @@ const LeafletMap = (props) => {
                             url="https://tile.thunderforest.com/outdoors/{z}/{x}/{y}.png?apikey=62bae950ae134822a4c875db79d87cf1"
                         />
                     </LayersControl.BaseLayer>  
-
                     <LayersControl.BaseLayer name="ThunderForest Landscape">
                         <TileLayer
                             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                             url="https://tile.thunderforest.com/landscape/{z}/{x}/{y}.png?apikey=62bae950ae134822a4c875db79d87cf1"
                         />
                     </LayersControl.BaseLayer>  
-                    
                 </LayersControl>
-
             </Map>
         </>
     )//Closes return.
 };
+
 export default LeafletMap;

@@ -14,8 +14,6 @@ const AvalancheAreas = props => {
     return (
         <>
             { props.visible && props.avalancheAreas.map(avalancheArea => (
-                
-         
                 <Polygon
                     color = {'red'}
                     weight={1}
@@ -23,13 +21,22 @@ const AvalancheAreas = props => {
                     icon={iconAvalanche}
                     key={avalancheArea.properties.Name} 
                     positions = {reverseLongLatCoordinates(avalancheArea.geometry.coordinates)}>
+                    
                     <Popup position={[avalancheArea.geometry.coordinates[1], avalancheArea.geometry.coordinates[0]]}>
                         <div>
                             <h3>{avalancheArea.properties.Name} </h3>
                             <p>{avalancheArea.properties.Description}</p>
-                            <Dialog />
+                            <Dialog 
+                                type = {avalancheArea.properties.InfoType}
+                                name={avalancheArea.properties.Name}
+                                description={avalancheArea.properties.Description}
+                                orientation={avalancheArea.properties.Orientation}
+                                imgSrc={avalancheArea.properties.ImgSrc}
+                                comments={avalancheArea.properties.Comments}
+                            />
                         </div>
                     </Popup>
+                    
                 </Polygon>
                 ))
             }

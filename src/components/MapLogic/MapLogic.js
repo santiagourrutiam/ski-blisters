@@ -6,15 +6,14 @@ import SkiShops from '../../models/skiShops.json';
 import Volcanos from '../../models/volcanos.json';
 import SkiTouringRoutes from '../../models/skiTouringRoutes.json';
 import AvalancheAreas from '../../models/avalancheAreas.json';
-
-//
 import LeafletMap from '../LeafletMap/LeafletMap';
-import './maplogic.css';
-import { Button, ButtonGroup } from '@material-ui/core';
+//import './maplogic.css';
+import BottomButtonGroup from '../ButtonGroup/ButtonGroup';
 
 /* 
 TODO (02-05-2020):
-- Buttons or layers to manage the tiles
+- images for <Dialog> size 640x427.
+- Buttons or layers to manage the tiles - DONE
 - Finish every object description with photos and info
 - Change behavior to onmouseout for Popups
 - Center map after click with state
@@ -24,9 +23,9 @@ class MapLogic extends Component {
     constructor(props){
         super(props);
         console.log ('Maplogic constructor');
-    }
+    
 
-    state = {
+    this.state = {
         mapCenter           : [-38.392, -71.568],
         zoomLevel           : 13.1,
         tileLayerUrl        : 'https://tile.thunderforest.com/outdoors/{z}/{x}/{y}.png?apikey=62bae950ae134822a4c875db79d87cf1',
@@ -40,6 +39,15 @@ class MapLogic extends Component {
         showVolcanos        : false,
         avalancheAreas      : AvalancheAreas.features,
         showAvalancheAreas  : false,
+    }
+    }
+    static getDerivedStateFromProps (props, state) {
+        console.log ('MapLogic getDerivedStateFromProps', props);
+        return state;
+    }
+
+    componentDidMount (){
+        console.log ('MapLogic componentDidMount ()');
     }
 
     volcanosToggler = () => {
@@ -65,6 +73,7 @@ class MapLogic extends Component {
         this.setState ({showSkiShops : !doesShowSkiShops });
     }
     render() {
+        console.log ('MapLogic Render');
             return (
                 <>
                     <LeafletMap
@@ -82,44 +91,13 @@ class MapLogic extends Component {
                         avalancheAreas={this.state.avalancheAreas}
                         showAvalancheAreas={this.state.showAvalancheAreas}  
                     />
-
-<ButtonGroup color="primary" aria-label="outlined primary button group" orientation="horizontal">
-                        <Button
-                            className="button" 
-                            variant="contained" 
-                            color="primary" 
-                            onClick={ () => this.volcanosToggler()}>Volcanos
-                        </Button>
-
-                        <Button
-                            className="button"
-                            variant="contained" 
-                            onClick={ () => this.routesToggler()}>Routes
-                        </Button>
-
-                        <Button 
-                            className="button"
-                            variant="contained" 
-                            color="primary" 
-                            onClick={ () => this.areasToggler()}>Local Areas
-                        </Button>
-
-                        <Button 
-                            className="button"
-                            variant="contained" 
-                            color="primary" 
-                            onClick={ () => this.skiShopsToggler()}>Ski Shops
-                        </Button>
-
-                        <Button 
-                            className="button"
-                            variant="contained" 
-                            color="primary" 
-                            onClick={ () => this.avalancheToggler()}>Avalanche Areas
-                        </Button>
-
-                    </ButtonGroup>
-
+                    <BottomButtonGroup 
+                        clickedVolcanos={ () => this.volcanosToggler()}
+                        clickedRoutes={ () => this.routesToggler()}
+                        clickedLocalAreas={ () => this.areasToggler()}
+                        clickedAvalancheAreas={ () => this.avalancheToggler()}
+                        clickedSkiShops={ () => this.skiShopsToggler()}
+                    />
                 </>
             ) //return closure
     } // render closure

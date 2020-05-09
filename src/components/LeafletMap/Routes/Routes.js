@@ -4,6 +4,7 @@ import MarkerClusterGroup from 'react-leaflet-markercluster';
 import Dialog from '../../Dialog/Dialog';
 import { iconRoute, } from '../icons/Icons';
 
+
 const Routes = (props) => {
     
     //Function to reverse positions to lat long coordinates.
@@ -21,7 +22,7 @@ const Routes = (props) => {
                 <div key={index}>
                     <Marker
                         icon={iconRoute}
-                        key={route.properties.Name}
+                        key={route.properties.index}
                         position={[route.geometry.coordinates.slice(-1)[0][1],route.geometry.coordinates.slice(-1)[0][0]]}>
                         <Popup position={[route.geometry.coordinates[1],route.geometry.coordinates[0]]}>
                             <div>
@@ -31,6 +32,9 @@ const Routes = (props) => {
                                     type = {route.properties.InfoType}
                                     name={route.properties.Name}
                                     description={route.properties.Description}
+                                    orientation={route.properties.Orientation}
+                                    imgSrc={route.properties.ImgSrc}
+                                    comments={route.properties.Comments}
                                 />
                             </div>
                         </Popup>

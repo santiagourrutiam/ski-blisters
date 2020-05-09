@@ -256,13 +256,7 @@
           "properties": {
               "Name": "Pehuenche Freeride",
               "InfoType": "localArea",
-              "Description": "Playful terrain, more rocks and possible cliffs. It's recommended",
-              "Comments": " ",
-              "ImgSrc": [
-                "/img/VallePewencheArea01_Mobile.jpg",
-                "/img/VallePewencheArea01_Mobile.jpg",
-                "/img/VallePewencheArea01_Mobile.jpg"
-              ]
+              "Description": "Playful terrain, more rocks and possible cliffs. It's recommende"
           },
             "geometry": {
               "type": "Polygon",
